@@ -8,8 +8,36 @@ export default function RegisterPage() {
 
   function registerUser(ev){
     ev.preventDefault();
-    axios.get('http://localhost:4000/test');
+    axios.post('/register', {
+      name,
+      email,
+      password,
+    });
   }
+  //----------------------------------------------use of async and await-----------------------------------------
+  // async function registerUser(ev){
+  //  ev.preventDefault();
+  //   let response = await axios.post('/register', {
+  //     name,
+  //     email,
+  //     password,
+  //   });
+  //   console.log(response);
+  // }
+
+  //-------------------------------------------------use of .then and .catch ------------------------------------ 
+  // function registerUser(ev){
+  //   ev.preventDefault();
+  //   axios.post('/register', {
+  //         name,
+  //         email,
+  //         password,
+  //       }).then((res)=>{
+  //         console.log(res);
+  //       }).catch((err)=>{
+  //         console.log(err);
+  //       })
+  // }
   return (
     <div className="mt-4 grow flex items-center justify-around">
       <div className="mb-56">
