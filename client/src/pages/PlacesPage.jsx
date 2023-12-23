@@ -34,7 +34,7 @@ export default function PlacesPage() {
           <form>
             <h2 className="text-2xl mt-4">Title</h2>
             <p className="text-gray-500 text-sm">
-              title for your place, should be shot and catchy as in
+              Title for your place, should be shot and catchy as in
               advertisement
             </p>
             <input
@@ -45,7 +45,7 @@ export default function PlacesPage() {
             <p className="text-gray-500 text-sm">Address to this place</p>
             <input type="text" placeholder="address" />
             <h2 className="text-2xl mt-4">Photos</h2>
-            <p className="text-gray-500 text-sm">more = better</p>
+            <p className="text-gray-500 text-sm">More = Better</p>
             <div className="flex gap-2">
               <input type="text" placeholder={"Add using a link ......jpg"} />
               <button className="bg-gray-200 px-4 rounded-2xl">
@@ -72,14 +72,14 @@ export default function PlacesPage() {
               </button>
             </div>
             <h2 className="text-2xl mt-4">Description</h2>
-            <p className="text-gray-500 text-sm">description of the place</p>
+            <p className="text-gray-500 text-sm">Description of the place</p>
             <textarea />
             <h2 className="text-2xl mt-4">Perks</h2>
             <p className="text-gray-500 text-sm">
-              select all the perks of your place
+              Select all the perks of your place
             </p>
-            <div className="grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-              <label className="border p-4 flex rounded-2xl gap-2 items-center">
+            <div className="grid mt-2 gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+              <label className="border p-4 flex rounded-2xl gap-2 items-center cursor pointer">
                 <input type="checkbox" />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +97,7 @@ export default function PlacesPage() {
                 </svg>
                 <span>Wifi</span>
               </label>
-              <label className="border p-4 flex rounded-2xl gap-2 items-center">
+              <label className="border p-4 flex rounded-2xl gap-2 items-center cursor pointer">
                 <input type="checkbox" />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -113,9 +113,9 @@ export default function PlacesPage() {
                     d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
                   />
                 </svg>
-                <span>Free parking spot</span>
+                <span>Free Parking Spot</span>
               </label>
-              <label className="border p-4 flex rounded-2xl gap-2 items-center">
+              <label className="border p-4 flex rounded-2xl gap-2 items-center cursor pointer">
                 <input type="checkbox" />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +134,7 @@ export default function PlacesPage() {
 
                 <span>TV</span>
               </label>
-              <label className="border p-4 flex rounded-2xl gap-2 items-center">
+              <label className="border p-4 flex rounded-2xl gap-2 items-center cursor pointer">
                 <input type="checkbox" />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +152,7 @@ export default function PlacesPage() {
                 </svg>
                 <span>Radio</span>
               </label>
-              <label className="border p-4 flex rounded-2xl gap-2 items-center">
+              <label className="border p-4 flex rounded-2xl gap-2 items-center cursor pointer">
                 <input type="checkbox" />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +170,7 @@ export default function PlacesPage() {
                 </svg>
                 <span>Pets</span>
               </label>
-              <label className="border p-4 flex rounded-2xl gap-2 items-center">
+              <label className="border p-4 flex rounded-2xl gap-2 items-center cursor pointer">
                 <input type="checkbox" />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -189,7 +189,31 @@ export default function PlacesPage() {
                 <span>Private Entrance</span>
               </label>
             </div>
+            
+            <h2 className="text-2xl mt-4">Extra Info</h2>
+            <p className="text-gray-500 text-sm">House rules, etc</p>
+            <textarea/>
+            
+            <h2 className="text-2xl mt-4">Check In & Out Time</h2>
+            <p className="text-gray-500 text-sm">Add Check In And Out Times , remember to have some time window for cleaning the room between guests</p>
+            <div className="grid gap-2 sm:grid-cols-3">
+            <div>
+            <h3 className="mt-2 -mb-1">Check In Time</h3>
+            <input type="text" placeholder="14:00"/>
+            </div>
+            <div>
+            <h3 className="mt-2 -mb-1">Check Out Time</h3>
+            <input type="text"/>
+            </div>
+            <div>
+            <h3 className="mt-2 -mb-1">Max Number Of Guests</h3>
+            <input type="text"/></div>
+            </div>
+ 
+                <button className="primary my-4 ">Save</button>
+    
           </form>
+         
         </div>
       )}
     </div>
