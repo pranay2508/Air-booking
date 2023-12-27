@@ -93,7 +93,8 @@ export default function PlacesPage() {
                 <img className="rounded-2xl " src={"http://localhost:4000/uploads/"+link} alt=""/>
                 </div>
               ))}
-              <button className=" flex items-center gap-1 justify-center border bg-transparent rounded-2xl p-2 text-2xl text-gray-600">
+              <label className=" flex items-center gap-1 justify-center border bg-transparent rounded-2xl p-2 text-2xl text-gray-600">
+                <input type="file" className="hidden"/>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -109,7 +110,7 @@ export default function PlacesPage() {
                   />
                 </svg>
                 Upload
-              </button>
+              </label>
             </div>
             {preInput('Description' ,'Description of the place')}
             <textarea value={description} onChange={ev=>setDescription(ev.target.value)}/>
