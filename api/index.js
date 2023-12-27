@@ -4,9 +4,10 @@ const { default: mongoose } = require("mongoose");
 const bcrypt = require("bcryptjs"); // to dycrypte the password of user
 const jwt = require('jsonwebtoken');//JSON Web Tokens are most commonly used to identify an authenticated user. They are issued by an authentication server
 const User = require("./models/User");
+const path = require('path'); // to set the path of photo to be uploaded
 const cookieParser = require('cookie-parser'); // cookie-parser is a middleware 
 //Extracts the cookie data from the HTTP request and converts it into a usable format that can be accessed by the server-side code.
-
+const imageDownloader= require('image-downloader'); // for downloading the image
 require("dotenv").config(); // MongoURL to connect with database
 const app = express();
 
@@ -15,6 +16,8 @@ const jwtSecret ='whollllaaawhoareyouwhooollalaaaaa';
 
 app.use(express.json());
 app.use(cookieParser()); // its the middleware to show cookie on server side
+// app.use('/uploads',express.static(__dirname+'/uploads'));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(
   cors({
     credentials: true,
@@ -85,5 +88,19 @@ app.get('/profile',(req,res)=>{
 app.post('/logout',(req,res)=>{
   res.cookie('token','').json(true);
 });
+console.log({__dirname});
+app.post('/upload-by-link', async (req,res)=> {
+  const{link} =req.body;
+  
+  const newName = 'photo' + Date.now() + '.jpg';
+  const uploadPath = path.join(__dirname, 'uploads', newName);
+
+  await imageDownloader.image({
+    url: link,
+    dest: uploadPath,
+  });
+
+  res.json(newName);
+})
 
 app.listen(4000);
