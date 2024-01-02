@@ -7,6 +7,8 @@ const User = require("./models/User");
 const path = require('path'); // to set the path of photo to be uploaded
 const cookieParser = require('cookie-parser'); // cookie-parser is a middleware 
 //Extracts the cookie data from the HTTP request and converts it into a usable format that can be accessed by the server-side code.
+const multer = require('multer');
+const fs = require('fs');
 const imageDownloader= require('image-downloader'); // for downloading the image
 require("dotenv").config(); // MongoURL to connect with database
 const app = express();
@@ -88,7 +90,8 @@ app.get('/profile',(req,res)=>{
 app.post('/logout',(req,res)=>{
   res.cookie('token','').json(true);
 });
-console.log({__dirname});
+
+// console.log({__dirname});
 app.post('/upload-by-link', async (req,res)=> {
   const{link} =req.body;
   
@@ -102,5 +105,20 @@ app.post('/upload-by-link', async (req,res)=> {
 
   res.json(newName);
 })
+
+const photosMiddleware = multer({dest:'uploads/'});
+app.post('/upload',photosMiddleware.array('photos',100), (req,res)=>{
+
+  const uploadedFiles =[];
+  for(let i=0 ;i<req.files.length; i++ ){
+    const {path,originalname}= req.files[i];
+    const parts = originalname.split('.');
+    const ext = parts[parts.length-1];
+    const newPath = path + '.' + ext ; 
+    fs.renameSync(path , newPath);
+    uploadedFiles.push(newPath.replace('uploads\\',''));
+  }
+  res.json(uploadedFiles);
+});
 
 app.listen(4000);
