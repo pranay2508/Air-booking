@@ -106,7 +106,7 @@ function uploadPhoto(ev){
             <div className=" mt-2 grid gap-2 grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
               {addedPhotos.length >0 && addedPhotos.map(link =>(
                 // eslint-disable-next-line react/jsx-key
-                <div className="h-32 flex">
+                <div className="h-32 flex" key={link}>
                 <img className="rounded-2xl w-full object-cover" src={"http://localhost:4000/uploads/"+link} alt=""/>
                 </div>
               ))}
@@ -132,7 +132,7 @@ function uploadPhoto(ev){
              
             </div>
             {preInput('Description' ,'Description of the place')}
-            <textarea value={description} onChange={ev=>setDescription(ev.target.value)}/>
+            <textarea className="w-full h-full border border-gray-300 rounded-2xl" value={description} onChange={ev=>setDescription(ev.target.value)}/>
             {preInput('Perks' ,'Select all the perks of your place')}
   
             <div className="grid mt-2 gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
@@ -142,7 +142,7 @@ function uploadPhoto(ev){
             
             
             {preInput('Extra Info','House rules etc')}
-            <textarea  value={extraInfo} onChange={ev => setExtraInfo(ev.target.value)}/>
+            <textarea className="w-full h-full border border-gray-300 rounded-2xl" value={extraInfo} onChange={ev => setExtraInfo(ev.target.value)}/>
             {preInput('Check In & Out Time' ,'Add Check In And Out Times , remember to have some time window for cleaning the room between guests')}
             
             <div className="grid gap-2 sm:grid-cols-3">
