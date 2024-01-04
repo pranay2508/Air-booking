@@ -4,7 +4,9 @@ import { useState } from "react";
 import axios from "axios";
 import AccountNav from "../AccountNav";
 import { Navigate } from "react-router-dom";
+
 export default function PlacesFormPage(){
+   
     const [title,setTitle]= useState('');
     const[address,setAddress]=useState('');
     const [addedPhotos , setAddedPhotos] = useState('');
