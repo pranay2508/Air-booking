@@ -1,15 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import { Link} from "react-router-dom";
 import AccountNav from "../AccountNav";
-// import { useEffect, useState } from "react";
-// import axios from "axios";
 export default function PlacesPage() {
-// const [places,setPlaces] = useState('');
-// useEffect(()=>{
-//   axios.get('/places').then(({data}) =>{
-//     setPlaces(data);
-//   })
-// },[])
 return (
     <div>
     <AccountNav/>
