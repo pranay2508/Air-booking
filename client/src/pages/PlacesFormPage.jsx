@@ -1,12 +1,12 @@
 import PhotosUploader from "../PhotosUploader";
 import Perks from "../Perks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import AccountNav from "../AccountNav";
-import { Navigate } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 
 export default function PlacesFormPage(){
-   
+   const {id} = useParams();
     const [title,setTitle]= useState('');
     const[address,setAddress]=useState('');
     const [addedPhotos , setAddedPhotos] = useState('');
@@ -16,7 +16,24 @@ export default function PlacesFormPage(){
     const [checkIn , setCheckIn] = useState('');
     const [ checkOut , setCheckOut] = useState('');
     const [maxGuests , setMaxGuests] = useState(1);
-    const [redirect,setRedirect] = useState(false)
+    const [redirect,setRedirect] = useState(false);
+    useEffect(()=>{
+      if(!id){
+        return;
+      }
+      axios.get('/places/'+id).then(response =>{
+        const {data} = response;
+        setTitle(data.title);
+        setAddress(data.address);
+        setAddedPhotos(data.photos);
+        setDescription(data.description);
+        setPerks(data.perks);
+        setExtraInfo(data.extraInfo);
+        setCheckOut(data.checkOut);
+        setCheckIn(data.checkIn);
+        setMaxGuests(data.maxGuests);
+      })
+    },[id])
     function inputHeader(text){
         return (
           <h2 className="text-2xl mt-4">{text}</h2>
@@ -38,14 +55,23 @@ export default function PlacesFormPage(){
         )
       }
       
-      async function addNewPlace(ev){
+      async function savePlace(ev){
         ev.preventDefault();
-       await axios.post('/places',{
-          title , address , addedPhotos , 
+        const placeData ={ title , address , addedPhotos , 
           description , perks , extraInfo , 
-          checkIn , checkOut ,maxGuests
-        });   
-        setRedirect(true);
+          checkIn , checkOut ,maxGuests}
+        if(id){
+          //update
+          await axios.post('/places',{
+            id,...placeData
+          });   
+          setRedirect(true);
+        }
+        else{
+          await axios.post('/places',placeData);   
+          setRedirect(true);
+        }
+       
     }
     if(redirect){
         return <Navigate to={'/account/places'}/>
@@ -53,7 +79,7 @@ export default function PlacesFormPage(){
     return (
         <div>
         <AccountNav/>
-        <form onSubmit={addNewPlace}>
+        <form onSubmit={savePlace}>
         {preInput('Title','Title for your place, should be shot and catchy as in advertisement' )}
           <input type="text" value={title} onChange={ev =>setTitle(ev.target.value)} placeholder="title, for example:My lovely appartment"/>
           {preInput('Address','Address to this place')}
@@ -62,7 +88,7 @@ export default function PlacesFormPage(){
           <PhotosUploader addedPhotos={addedPhotos} onChange={setAddedPhotos}/>
           
           {preInput('Description' ,'Description of the place')}
-          <textarea className="w-full h-full border border-gray-300 rounded-2xl" value={description} onChange={ev=>setDescription(ev.target.value)}/>
+          <textarea className=" height:140px w-full h-full border border-gray-300 rounded-2xl " value={description} onChange={ev=>setDescription(ev.target.value)}/>
           {preInput('Perks' ,'Select all the perks of your place')}
 
           <div className="grid mt-2 gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
@@ -72,7 +98,7 @@ export default function PlacesFormPage(){
           
           
           {preInput('Extra Info','House rules etc')}
-          <textarea className="w-full h-full border border-gray-300 rounded-2xl" value={extraInfo} onChange={ev => setExtraInfo(ev.target.value)}/>
+          <textarea className="w-full h-full border border-gray-300 rounded-2xl height:140px" value={extraInfo} onChange={ev => setExtraInfo(ev.target.value)}/>
           {preInput('Check In & Out Time' ,'Add Check In And Out Times , remember to have some time window for cleaning the room between guests')}
           
           <div className="grid gap-2 sm:grid-cols-3">
