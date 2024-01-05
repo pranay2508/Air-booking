@@ -62,7 +62,7 @@ export default function PlacesFormPage(){
           checkIn , checkOut ,maxGuests}
         if(id){
           //update
-          await axios.post('/places',{
+          await axios.put('/places',{
             id,...placeData
           });   
           setRedirect(true);
