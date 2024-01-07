@@ -90,7 +90,7 @@ export default function PlacesFormPage(){
           <PhotosUploader addedPhotos={addedPhotos} onChange={setAddedPhotos}/>
           
           {preInput('Description' ,'Description of the place')}
-          <textarea className=" height:140px w-full h-full border border-gray-300 rounded-2xl " value={description} onChange={ev=>setDescription(ev.target.value)}/>
+          <textarea className=" pl-2 height:140px w-full h-full border border-gray-300 rounded-2xl " value={description} onChange={ev=>setDescription(ev.target.value)}/>
           {preInput('Perks' ,'Select all the perks of your place')}
 
           <div className="grid mt-2 gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
@@ -100,7 +100,7 @@ export default function PlacesFormPage(){
           
           
           {preInput('Extra Info','House rules etc')}
-          <textarea className="w-full h-full border border-gray-300 rounded-2xl height:140px" value={extraInfo} onChange={ev => setExtraInfo(ev.target.value)}/>
+          <textarea className=" pl-2 w-full h-full border border-gray-300 rounded-2xl height:140px" value={extraInfo} onChange={ev => setExtraInfo(ev.target.value)}/>
           {preInput('Check In & Out Time' ,'Add Check In And Out Times , remember to have some time window for cleaning the room between guests')}
           
           <div className="grid gap-2 grid-cols-2 md:grid-cols-4">
