@@ -4,6 +4,7 @@ const { default: mongoose } = require("mongoose");
 const bcrypt = require("bcryptjs"); // to dycrypte the password of user
 const jwt = require("jsonwebtoken"); //JSON Web Tokens are most commonly used to identify an authenticated user. They are issued by an authentication server
 const User = require("./models/User");
+const Booking = require("./models/Booking");
 const path = require("path"); // to set the path of photo to be uploaded
 const cookieParser = require("cookie-parser"); // cookie-parser is a middleware
 //Extracts the cookie data from the HTTP request and converts it into a usable format that can be accessed by the server-side code.
@@ -134,7 +135,7 @@ app.post("/places", (req, res) => {
     checkIn,
     checkOut,
     maxGuests,
-    price
+    price,
   } = req.body;
   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
     if (err) throw err;
@@ -150,7 +151,6 @@ app.post("/places", (req, res) => {
       checkIn,
       checkOut,
       maxGuests,
-      
     });
     res.json(placeDoc);
   });
@@ -207,7 +207,20 @@ app.put("/places", async (req, res) => {
   });
 });
 
-app.get('/places' ,async (req,res)=>{
-  res.json(await Place.find() )
-})
+app.get("/places", async (req, res) => {
+  res.json(await Place.find());
+});
+
+app.post("/bookings", (req, res) => {
+  const { place, checkIn, checkOut, numberOfGuests, name, phone, price } =
+    req.body;
+
+   Booking.create({
+      place, checkIn, checkOut, numberOfGuests, name, phone, price 
+    }).then((doc)=>{
+      res.json(doc);
+    }).catch((err)=>{
+      throw err;
+    });
+});
 app.listen(4000);
