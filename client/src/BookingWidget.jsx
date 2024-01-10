@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { differenceInCalendarDays } from "date-fns";
 import axios from "axios";
+import {UserContext} from "./UserContext";
 import { Navigate } from "react-router-dom";
 export default function BookingWidget({ place }) {
   const [checkIn, setCheckIn] = useState("");
@@ -10,7 +11,12 @@ export default function BookingWidget({ place }) {
   const [name, setName] = useState("");
   const [phone, setphone] = useState("");
   const [redirect , setRedirect] = useState('');
-
+  const {user} = useContext(UserContext);
+  useEffect(()=>{
+    if(user){
+      setName(user.name);
+    }
+  },[user])
   let numberofNights = 0;
   if (checkIn && checkOut) {
     // eslint-disable-next-line no-unused-vars
