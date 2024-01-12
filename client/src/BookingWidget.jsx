@@ -26,8 +26,7 @@ export default function BookingWidget({ place }) {
     );
   }
 
-  async function bookedThisPlace() {
-  
+  async function  bookedThisPlace() {
    const response = await axios.post("/bookings",{
     checkIn,
     checkOut,
