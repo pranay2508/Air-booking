@@ -35,9 +35,9 @@ mongoose.connect(process.env.MONGO_URL);
 app.get("/test", (req, res) => {
   res.json("test ok");
 });
+
 app.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
-
   try {
     const userDoc = await User.create({
       name,
@@ -215,13 +215,12 @@ app.post("/bookings", async (req, res) => {
   const userData = await getUserDataFromReq(req);
   const { place, checkIn, checkOut, numberOfGuests, name, phone, price } =
     req.body;
-
    Booking.create({
       place, checkIn, checkOut, numberOfGuests, name, phone, price ,user:userData.id,
     }).then((doc)=>{
       res.json(doc);
-    }).catch((err)=>{
-      throw err;
+    }).catch((e)=>{
+      res.status(422).json(e);
     });
 });
 

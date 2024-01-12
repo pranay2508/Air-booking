@@ -2,7 +2,7 @@
 import { useContext, useEffect, useState } from "react";
 import { differenceInCalendarDays } from "date-fns";
 import axios from "axios";
-import {UserContext} from "./UserContext";
+import { UserContext } from "./UserContext";
 import { Navigate } from "react-router-dom";
 export default function BookingWidget({ place }) {
   const [checkIn, setCheckIn] = useState("");
@@ -10,13 +10,13 @@ export default function BookingWidget({ place }) {
   const [numberOfGuests, setNumberOfGuests] = useState(1);
   const [name, setName] = useState("");
   const [phone, setphone] = useState("");
-  const [redirect , setRedirect] = useState('');
-  const {user} = useContext(UserContext);
-  useEffect(()=>{
-    if(user){
+  const [redirect, setRedirect] = useState("");
+  const { user } = useContext(UserContext);
+  useEffect(() => {
+    if (user) {
       setName(user.name);
     }
-  },[user])
+  }, [user]);
   let numberofNights = 0;
   if (checkIn && checkOut) {
     // eslint-disable-next-line no-unused-vars
@@ -26,22 +26,29 @@ export default function BookingWidget({ place }) {
     );
   }
 
-  async function  bookedThisPlace() {
-   const response = await axios.post("/bookings",{
-    checkIn,
-    checkOut,
-    numberOfGuests,
-    name,
-    phone,
-    place: place._id,
-    price: numberofNights * place.price
-  });
-  const bookingId = response.data._id;
-  setRedirect(`/account/bookings/${bookingId}`);
+  async function bookedThisPlace(ev) {
+    ev.preventDefault();
+    try {
+      const response = await axios.post("/bookings", {
+        checkIn,
+        checkOut,
+        numberOfGuests,
+        name,
+        phone,
+        place: place._id,
+        price: numberofNights * place.price,
+      });
+      const bookingId = response.data._id;
+      alert("Booking done");
+      setRedirect(`/account/bookings/${bookingId}`);
+     
+    } catch {
+      alert("Details are mandotory");
+    }
   }
 
-  if(redirect){
-    return <Navigate to={redirect}/>
+  if (redirect) {
+    return <Navigate to={redirect} />;
   }
 
   return (
