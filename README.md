@@ -77,4 +77,4 @@ This CLI creates a new React project that uses ViteJS as the bundler and develop
 After downloading the project, simply run:
 
 yarn create vite-react OR npx cvr
->>>>>>> 3298f88 (readme file updated)
+
