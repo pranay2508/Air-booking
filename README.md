@@ -74,7 +74,7 @@ Users select their preferred accommodation, choose the number of days they wish 
 ![Screenshot (105)](https://github.com/pranay2508/Air-booking/assets/56022492/e9425703-50ff-4ca9-80aa-6bff25cfc366)
 
 
-6. Booking Page:
+5. Booking Page:
 On the booking page, users review their selected accommodation, chosen dates, and associated costs.
 Additional options, such as room preferences or meal plans, may be presented for customization.
 The system calculates the total cost, considering the selected options, and provides a summary.
@@ -85,7 +85,7 @@ Users confirm the booking, and the system processes the transaction securely.
 
 
 
-8. Booking Confirmation:
+6. Booking Confirmation:
 After successful booking, users receive a confirmation message with details such as dates, and total cost.
 The booking details are stored in the system's database for reference.
 
@@ -94,7 +94,7 @@ The booking details are stored in the system's database for reference.
 
 
 
-10. Booking History Page:
+7. Booking History Page:
 Users can view their booking history on a dedicated page.
 The page displays a list of past bookings, including details like accommodation name, booking dates, and total cost.
 This user process provides a step-by-step guide to the core functionalities of your accommodation booking platform, ensuring clarity for users and stakeholders.
