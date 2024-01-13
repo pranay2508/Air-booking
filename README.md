@@ -62,6 +62,8 @@ Detailed information about each accommodation, including images, amenities, and 
 Users select their preferred accommodation, choose the number of days they wish to stay, and proceed to the booking page.
 
 ![Screenshot (104)](https://github.com/pranay2508/Air-booking/assets/56022492/7b803448-c2cb-4ab2-b63c-95f44f7270ac)
+
+
 ![Screenshot (105)](https://github.com/pranay2508/Air-booking/assets/56022492/e9425703-50ff-4ca9-80aa-6bff25cfc366)
 
 6. Booking Page:
@@ -84,6 +86,8 @@ The page displays a list of past bookings, including details like accommodation 
 This user process provides a step-by-step guide to the core functionalities of your accommodation booking platform, ensuring clarity for users and stakeholders.
 
 ![Screenshot (109)](https://github.com/pranay2508/Air-booking/assets/56022492/8883091e-6d60-474e-a698-6cea675a7138)
+
+
 ![Screenshot (108)](https://github.com/pranay2508/Air-booking/assets/56022492/b2a46f61-c01b-47ed-aed0-9641daf61830)
 
 
