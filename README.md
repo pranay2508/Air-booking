@@ -16,10 +16,6 @@ Intuitive User Interface: Crafted with React, the platform offers a visually app
 ![Screenshot (101)](https://github.com/pranay2508/Air-booking/assets/56022492/dd6d2cf8-d08a-4e69-ac56-2c6bcfe2caa2)
 
 
-![Screenshot (110)](https://github.com/pranay2508/Air-booking/assets/56022492/584dbd7a-3cd8-4258-bf46-44c1535564de)
-
-
-
 Responsive Design: TravelHub adapts to various devices, ensuring a consistent and enjoyable user experience across desktops, tablets, and mobile phones.
 ## Tech Stack
 
@@ -93,6 +89,10 @@ This user process provides a step-by-step guide to the core functionalities of y
 
 
 ![Screenshot (108)](https://github.com/pranay2508/Air-booking/assets/56022492/b2a46f61-c01b-47ed-aed0-9641daf61830)
+
+
+
+![Screenshot (110)](https://github.com/pranay2508/Air-booking/assets/56022492/584dbd7a-3cd8-4258-bf46-44c1535564de)
 
 
 ## Get Started
