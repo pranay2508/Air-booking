@@ -59,11 +59,11 @@ Upon successful login, users are redirected to the landing page.
 
 3. Landing Page:
 The landing page provides an overview of available destinations, popular hotels, or featured accommodations.
-Users can navigate through different sections, explore options, and access the search functionality to find specific locations or accommodations.
+Users can access the search functionality to find specific locations or accommodations.
 
 4. Accommodation Selection and Booking:
 Users choose a destination or search for specific places based on their preferences.
-Detailed information about each accommodation, including images, amenities, and user reviews, is presented.
+Detailed information about each accommodation, including images is presented.
 Users select their preferred accommodation, choose the number of days they wish to stay, and proceed to the booking page.
 
 
@@ -76,7 +76,7 @@ Users select their preferred accommodation, choose the number of days they wish 
 
 5. Booking Page:
 On the booking page, users review their selected accommodation, chosen dates, and associated costs.
-Additional options, such as room preferences or meal plans, may be presented for customization.
+Additional options may be presented for customization.
 The system calculates the total cost, considering the selected options, and provides a summary.
 Users confirm the booking, and the system processes the transaction securely.
 
