@@ -117,7 +117,7 @@ This user process provides a step-by-step guide to the core functionalities of y
 Create React App with ViteJS
 This CLI creates a new React project that uses ViteJS as the bundler and development.
 
-After downloading the project, simply run:
+After downloading the project, simply run :
 
 yarn create vite-react OR npx cvr
 
