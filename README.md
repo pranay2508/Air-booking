@@ -121,3 +121,7 @@ After downloading the project, simply run :
 
 yarn create vite-react OR npx cvr
 
+❤️
+
+
+
